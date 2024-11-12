@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../types/product';
 import ProductCard from './ProductCard';
+import LoadingSpinner from './LoadingSpinner';
 
 interface ProductTableProps {
   products: Product[];
@@ -15,11 +16,7 @@ export const ProductTable: React.FC<ProductTableProps> = ({
 }) => {
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
-      </div>
-    );
+    return <LoadingSpinner/>
   }
 
   return (
