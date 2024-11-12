@@ -44,7 +44,7 @@ const ProductCard: React.FC<ProductProps> = ({ product, onViewDetails }) => {
                     />
                 </div>
                 <div className="grid gap-1.5">
-                    <h3 className="font-semibold text-sm md:text-base">{truncateText(product.title)}</h3>
+                    <h3 className="font-semibold text-sm md:text-base">{truncateText(product.title,25)}</h3>
                     <p className="text-sm text-gray-600 font-medium">{truncateText(product.description)}</p>
                     <p className="font-semibold text-sm md:text-base flex gap-2">
                         ${product.price.toFixed(2)}

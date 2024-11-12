@@ -52,7 +52,7 @@ const NavBar: React.FC = () => {
         filters.rating;
 
     return (
-        <div className="bg-white p-8 rounded-lg mb-4 sticky top-0 z-[1000] shadow-lg">
+        <div className="bg-white p-8 rounded-lg sticky top-0 z-[1000] shadow-lg">
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-between">
                 <div className="relative flex-1 w-full">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />

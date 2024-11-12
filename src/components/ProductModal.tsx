@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../types/product';
 import { Edit2, X } from 'lucide-react';
+import { useToast } from './ToastProvider';
 
 interface ProductModalProps {
   product: Product | null;
@@ -8,7 +9,8 @@ interface ProductModalProps {
   onPriceUpdate: (id: number, price: number) => void;
 }
 
-export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose,onPriceUpdate }) => {
+export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onPriceUpdate }) => {
+  const { showToast } = useToast();
   if (!product) return null;
 
   const [editingPrice, setEditingPrice] = useState<{
@@ -27,6 +29,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose,onP
         onPriceUpdate(id, newPrice);
       }
       setEditingPrice(null);
+      showToast('changing a record is not implemented as Im not using a database', 5000)
     }
   };
 
@@ -48,7 +51,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose,onP
             <img
               src={product.thumbnail}
               alt={product.title}
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-64 object-cover rounded-lg border-2 border-slate-300"
             />
             <div className="grid grid-cols-4 gap-2 mt-4">
               {product.images.slice(0, 4).map((image, index) => (
@@ -56,7 +59,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose,onP
                   key={index}
                   src={image}
                   alt={`${product.title} ${index + 1}`}
-                  className="w-full h-20 object-cover rounded"
+                  className="w-full h-20 object-cover border-2 border-slate-600 rounded"
                 />
               ))}
             </div>
