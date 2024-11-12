@@ -2,7 +2,9 @@
 
 A modern, responsive product management dashboard built with React, TypeScript, and Vite. This application provides a comprehensive interface for managing products with features like real-time search, filtering, and inline editing.
 
-![Dashboard Preview](c:\Users\mural\Pictures\Screenshots\product-management.png)
+Deployed url: (https://product-mangement-murali.netlify.app/)
+
+![Dashboard Preview](public/product-management.png)
 
 ## Features
 
