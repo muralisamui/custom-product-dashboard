@@ -75,7 +75,7 @@ const NavBar: React.FC = () => {
                                 Select Date Ranges
                             </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent>
+                        <DropdownMenuContent className='z-[1000]'>
                             <Calendar
                                 selected={selectedRange.start || undefined}
                                 onSelect={handleDateSelect}

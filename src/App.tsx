@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import HomePage from './pages/homePage';
 import LoadingSpinner from './components/LoadingSpinner';
+import { ToastProvider } from './components/ToastProvider';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,9 @@ function App() {
     }
 
   return (
-    <HomePage />
+    <ToastProvider>
+      <HomePage />
+    </ToastProvider>
   );
 }
 

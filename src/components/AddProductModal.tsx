@@ -3,6 +3,7 @@ import { Product } from '../types/product';
 import { X, Plus, Trash2 } from 'lucide-react';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useToast } from './ToastProvider';
 
 interface AddProductModalProps {
   onClose: () => void;
@@ -13,6 +14,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({
   onClose,
   onSubmit,
 }) => {
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -34,6 +36,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    showToast('Adding a record is not implemented as Im not using a database', 5000)
     const product = {
       ...formData,
       price: parseFloat(formData.price),
@@ -314,7 +317,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="px-4 py-2 text-sm font-medium text-white border border-transparent bg-blue-500 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
             >
               Add Product
             </button>

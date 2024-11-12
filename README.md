@@ -6,15 +6,15 @@ A modern, responsive product management dashboard built with React, TypeScript, 
 
 ## Features
 
-- 📦 Product listing with pagination
-- 🔍 Real-time search with debouncing
-- 📅 Date range filtering
-- ⭐ Rating filters
-- 💰 Inline price editing
-- 📱 Fully responsive design
-- ➕ Add new products with detailed information
-- 🖼️ Multiple image support
-- 📊 Detailed product view modal
+- Product listing with pagination
+- Real-time search with debouncing
+- Date range filtering
+- Rating filters
+- Inline price editing
+- Fully responsive design
+- Add new products with detailed information
+- Multiple image support
+- Detailed product view modal
 
 ## Tech Stack
 
