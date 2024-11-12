@@ -1,6 +1,4 @@
 import * as React from "react"
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -8,7 +6,6 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-// type Checked = DropdownMenuCheckboxItemProps["checked"]
 
 interface DropdownProps {
     label: string;

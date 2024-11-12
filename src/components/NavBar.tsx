@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Plus, RotateCcw } from 'lucide-react';
 import { Calendar } from './ui/calendar';
-import { Button } from './ui/button'; // Assuming ShadCN has a Button component
+import { Button } from './ui/button';
 import { AddProductModal } from './AddProductModal';
 import { useProducts } from '@/hooks/useProducts';
 import { useProductStore } from '@/store/productStore';
@@ -22,10 +22,10 @@ const NavBar: React.FC = () => {
         if (!date) return; // Exit if no date is selected
 
         if (!selectedRange.start || (selectedRange.start && selectedRange.end)) {
-            // Start new range selection
+            // new range selection
             setSelectedRange({ start: date, end: undefined });
         } else if (selectedRange.start && !selectedRange.end) {
-            // Complete range selection
+            //  range selection
             setSelectedRange({ start: selectedRange.start, end: date });
             setFilters({
                 ...filters,
@@ -68,7 +68,7 @@ const NavBar: React.FC = () => {
                 </div>
                 <div className='flex gap-3'>
                     <DropdownMenu>
-                        <DropdownMenuTrigger>
+                        <DropdownMenuTrigger asChild>
                             <Button
                                 className="flex items-center gap-2 px-4 py-2  text-white rounded-lg"
                             >

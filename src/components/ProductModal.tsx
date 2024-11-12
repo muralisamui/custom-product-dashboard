@@ -79,7 +79,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose,onP
               </div>
               <div>
                 <span className="text-sm font-medium text-gray-500">Price</span>
-                {/* <p className="text-gray-900">${product.price.toFixed(2)}</p> */}
                 {editingPrice?.id === product.id ? (
                   <input
                     type="number"

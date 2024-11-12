@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { Search, Filter, Plus, Heading1 } from 'lucide-react';
+import { Search, Filter, Plus } from 'lucide-react';
 import { ProductFilters } from '@/types/product';
 import { AddProductModal } from './AddProductModal';
 import { useProducts } from '@/hooks/useProducts';
-import DynamicDropdown from './DynamicDropdown';
-import { Calendar } from './ui/calendar';
-
 interface FiltersProps {
     filters: ProductFilters;
     onFilterChange: (filters: ProductFilters) => void;
@@ -14,7 +11,6 @@ interface FiltersProps {
 const TopNavBar: React.FC<FiltersProps> = ({ filters, onFilterChange }) => {
     const { addProduct } = useProducts();
     const [showAddModal, setShowAddModal] = useState(false);
-    const [date, setDate] = React.useState<Date | undefined>(new Date())
 
     return (
         <div className="bg-white p-4 rounded-lg shadow mb-6 space-y-4 sticky top-0 z-[1000]">
