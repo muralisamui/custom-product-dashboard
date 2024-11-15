@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Product } from '../types/product';
 import { Edit2, X } from 'lucide-react';
-import { useToast } from './ToastProvider';
 
 interface ProductModalProps {
   product: Product | null;
@@ -10,7 +9,6 @@ interface ProductModalProps {
 }
 
 export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, onPriceUpdate }) => {
-  const { showToast } = useToast();
   if (!product) return null;
 
   const [editingPrice, setEditingPrice] = useState<{
@@ -29,7 +27,6 @@ export const ProductModal: React.FC<ProductModalProps> = ({ product, onClose, on
         onPriceUpdate(id, newPrice);
       }
       setEditingPrice(null);
-      showToast('changing a record is not implemented as Im not using a database', 5000)
     }
   };
 
