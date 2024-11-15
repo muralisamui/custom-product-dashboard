@@ -22,9 +22,11 @@ const NavBar: React.FC = () => {
     const { showToast } = useToast();
 
     // To show and hide popup
-    useEffect(()=>{
-        showToast('Product added succesfully',5000)
-    },[addProductStatus])
+    useEffect(() => {
+        if (addProductStatus) {
+            showToast('Product added succesfully', 5000)
+        }
+    }, [addProductStatus])
 
     const handleDateSelect = (date: Date | undefined) => {
         if (!date) return; // Exit if no date is selected
