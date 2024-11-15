@@ -14,7 +14,7 @@ export const useProductStore = create<ProductStore>((set) => ({
     dateRange: null,
     rating: null,
   },
-  setFilters: (filters) => set({ filters, page: 1 }), // Reset page when filters change
+  setFilters: (filters) => set({ filters, page: 1 }),
   page: 1,
   setPage: (page) => set({ page }),
 }));

@@ -2,10 +2,12 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Product, ProductsResponse } from '../types/product';
 import { useProductStore } from '../store/productStore';
 import { useDebounce } from './useDebounce';
+import { useState } from 'react';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://dummyjson.com/products';
 
 export const useProducts = () => {
+  const [addProductStatus, setAddProductStatus] = useState(false);
   const queryClient = useQueryClient();
   const { filters, page } = useProductStore();
   const debouncedSearch = useDebounce(filters.search, 300);
@@ -14,7 +16,7 @@ export const useProducts = () => {
   const fetchProducts = async () => {
     const searchParam = debouncedSearch ? `/search?q=${debouncedSearch}&` : '?';
     const response = await fetch(
-      `${BASE_URL}${searchParam}limit=100` // Fetch all products to handle client-side filtering
+      `${BASE_URL}${searchParam}limit=100` 
     );
     if (!response.ok) throw new Error('Failed to fetch products');
     const data: ProductsResponse = await response.json();
@@ -87,6 +89,7 @@ export const useProducts = () => {
       return response.json();
     },
     onSuccess: () => {
+      setAddProductStatus(true);
       queryClient.invalidateQueries({ queryKey: ['products'] });
     },
   });
@@ -100,5 +103,6 @@ export const useProducts = () => {
       updatePriceMutation.mutate({ id, price }),
     addProduct: (product: Omit<Product, 'id'>) =>
       addProductMutation.mutate(product),
+    addProductStatus
   };
 };

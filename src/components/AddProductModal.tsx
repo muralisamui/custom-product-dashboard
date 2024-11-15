@@ -36,7 +36,6 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    showToast('Adding a record is not implemented as Im not using a database', 5000)
     const product = {
       ...formData,
       price: parseFloat(formData.price),
